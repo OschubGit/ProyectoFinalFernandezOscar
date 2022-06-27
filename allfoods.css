@@ -1,0 +1,14 @@
+.description-api{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.instruction-message{
+    background: whitesmoke;
+    border: 0.2px solid #bebebe21;
+    border-radius: 27px;
+    box-shadow: 0px -6px 12px #6e6e6e17;
+
+}
