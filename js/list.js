@@ -1,10 +1,15 @@
-//Validar formulario > linea 
-//Edicion card > linea 
-//Delete card > linea 
-//Mostrar lista > linea 
-//Cerrar modal > linea
-//Filtrar por categorias > linea
-//Buscador del navegador > linea
+// 47 > Comprueba si hay aliemntos anadidos al cargar la pagina
+// 53 > Comprueba que si entras sin usuario te redirige al login
+// 58 > Mostrar nombre del usuario del localStorage
+// 65 > Muestra en pantalla la lista de alimentos
+// 115 > Cargamos las categorias del formulario con el ENUM typeCategory
+// 124 > Cargamos las categorias en el selector del modal de edicion
+// 132 > Cargamos las categorias en el selector del menu de navegación
+// 143 > EDICION DE ALIMENTOS
+// 216 > ELIMINAR ALIMENTOS
+// 240 > CREACIÓN DE ALIMENTOS
+// 266 > FILTRAR ALIMENTOS
+// 298 > BUSCADOR
 
 
 let defaultImage = "./images/default-placeholder.png"
@@ -135,7 +140,8 @@ for (const category of foodCategory) {
 
 
 
-//Edicion de alimentos
+/* EDICION DE ALIMENTOS */
+
 //Abrimos modal con evento onClick
 let openModal = document.getElementById("modal");
 
@@ -150,8 +156,6 @@ closeModal.addEventListener("click", () => {
 	openModal.classList.remove("is-active");
 	openModal.className = "modal";
 });
-
-
 
 //Asignamos los nuevos valores del modal de edicion
 let newFoodModal = document.getElementById("input-food-modal");
@@ -168,8 +172,6 @@ let newPesoRacion = document.getElementById("input-peso-racion-modal");
 newPesoRacion.addEventListener("input", () => {
 	savePesoRacion = newPesoRacion.value;
 });
-
-
 
 //Deteccion de onclick editar
 let getOption;
@@ -211,7 +213,7 @@ let formEdit = document.getElementById("formEdit");
 
 
 
-//Borrar alimento al cliclar btn eliminar
+/* ELIMINAR ALIMENTOS */
 //Filtramos por todos los alimentos menos el seleccionado y actualizamos array
 function deleteCard(id) {
 	Toastify({
@@ -235,7 +237,7 @@ function deleteCard(id) {
 }
 
 
-//Validacion de formulario
+/* CREACIÓN DE ALIMENTOS */
 let miFormulario = document.getElementById("formulario");
 miFormulario.addEventListener("submit", validarFormulario);
 
@@ -261,7 +263,7 @@ function validarFormulario(e) {
 }
 
 
-
+/* FILTRAR ALIMENTOS */
 //Filtrar alimentos por categoria cuando se selecciona en el menu de navegacion
 //Detectamos cada uno de los items con queryselctor
 let btnFilter = document.querySelectorAll(".btnfilter");
@@ -293,7 +295,7 @@ btnFilter[x].addEventListener("click", () => {
 
 
 
-//Buscador del navegador
+/* BUSCADOR */
 let searchInputhtml = document.querySelector("#searchInput");
 let searchBtnHtml = document.getElementById("btnSearch");
 searchBtnHtml.addEventListener("click", filtrar);
@@ -322,15 +324,15 @@ function filtrar() {
 				<div class="title is-5 raciones">
 				${alimento.total > 7 ? (
 					`
-				  <ion-icon style="color: red; name="alert-circle-outline"></ion-icon>
-				  ${alimento.total}raciones
-				  `
-				) : (
-				  `
-				  <ion-icon style="color: green;" class="checkmark-circle-outline" name="checkmark-circle-outline"></ion-icon>
-				  ${alimento.total}raciones
-				  `
-				)}
+					<ion-icon style="color: red;" name="alert-circle-outline"></ion-icon>
+					${alimento.total}raciones
+					`
+				  ) : (
+					`
+					<ion-icon style="color: green;" name="checkmark-circle-outline"></ion-icon>
+					${alimento.total}raciones
+					`
+				  )}
 				</div>
 				<p class="title is-4">${alimento.alimento}</p>
 				<p>Categoría:</p>
@@ -358,7 +360,7 @@ function filtrar() {
 }
 
 
-//Cerramos mensaje de no hay coincidencias al filtrar
+//Cerramos mensaje de no hay coincidencias
 function deleteWarning() {
 	const deleteWarning = document.getElementById("delete-warning");
 	deleteWarning.remove();

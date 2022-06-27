@@ -1,3 +1,9 @@
+.modal{
+    background: #fffffff2;
+}
+#closeModal{
+    background-color: #21212194;
+}
 .description-api{
     display: -webkit-box;
     overflow: hidden;

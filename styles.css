@@ -81,17 +81,29 @@ body{
 
 /* media querys */
 @media (max-width: 900px) {
-
+  html{
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+  }
+  
   .gridSection {
     height: auto;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
   }
-
+  
   .gridContent{
     grid-template-columns: 1fr 1fr;
     justify-content: start;
     gap: 18px;
+  }
+
+  .gridSection__content {
+    height: 100%;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: 0px; /* for Firefox */
+    overflow-y: auto;
   }
   
 
